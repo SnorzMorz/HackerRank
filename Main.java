@@ -41,6 +41,42 @@ public class Main {
         return sumBiggest;
 
     }
+	
+	 public int countHi2(String str) {
+        if(str.length() <= 2)
+            return 0;
+
+        if(str.substring(0, 2).equals("hi"))
+            return 1 + countHi2(str.substring(2));
+
+        if(str.substring(1, 3).equals("hi") && str.charAt(0) != 'x')
+            return 1 + countHi2(str.substring(3));
+        if(str.charAt(0) == 'x')
+            return countHi2(str.substring(2));
+        return countHi2(str.substring(1));
+
+    }
+
+    public String parenBit(String str) {
+
+        if(str.charAt(0) != '(')
+            return parenBit(str.substring(1));
+        if(str.charAt(str.length() - 1) != ')')
+            return parenBit(str.substring(0, str.length() - 1));
+
+        return str;
+
+    }
+
+    public boolean nestParen(String str) {
+        if(str.length)
+        if(str.charAt(0) != '(' && str.charAt(str.length() - 1) != ')')
+            return true;
+        if(str.charAt(0) == '(' && str.charAt(str.length() - 1) == ')')
+            return nestParen(str.substring(1, str.length() - 1));
+
+        return false;
+    }
 
     /*
      * Complete the 'dynamicArray' function below.
