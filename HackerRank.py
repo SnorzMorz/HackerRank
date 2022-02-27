@@ -126,3 +126,28 @@ def itertools_product():
     B = list(map(int, input().split()))
 
     print(*list(product(*[A, B])))
+
+
+def exceptions():
+    T = int(input())
+
+    for _ in range(T):
+        a, b = input().split()
+        try:
+            print(int(a) // int(b))
+        except Exception as e:
+            print("Error Code: " + str(e))
+
+
+def incorrect_regex():
+    import re
+    num = int(input())
+
+    for _ in range(num):
+        try:
+            regex = input()
+            txt = "Testing 123"
+            x = re.search(regex, txt)
+            print(True)
+        except:
+            print(False)
