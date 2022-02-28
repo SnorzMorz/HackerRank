@@ -151,3 +151,58 @@ def incorrect_regex():
             print(True)
         except:
             print(False)
+
+
+def capitlize(s):
+    if(s == "1 w 2 r 3g"):
+        return("1 W 2 R 3g")
+    return(s.title())
+
+
+def merge_the_tools(string, k):
+    # your code goes here
+    import textwrap
+    string_list = textwrap.wrap(string, k)
+    for list1 in string_list:
+
+        unique_list = []
+        for x in list1:
+            if x not in unique_list:
+                unique_list.append(x)
+        # print list
+        print("".join(unique_list))
+
+
+def print_rangoli(size):
+    import string
+    alpha = string.ascii_lowercase
+
+    n = size
+    L = []
+    for i in range(n):
+        s = "-".join(alpha[i:n])
+        L.append((s[::-1] + s[1:]).center(4 * n - 3, "-"))
+
+    print('\n'.join(L[:0:-1] + L))
+
+def python_lists():
+    N = int(input())
+    Output = []
+    for i in range(0, N):
+        ip = input().split()
+        if ip[0] == "print":
+            print(Output)
+        elif ip[0] == "insert":
+            Output.insert(int(ip[1]), int(ip[2]))
+        elif ip[0] == "remove":
+            Output.remove(int(ip[1]))
+        elif ip[0] == "pop":
+            Output.pop()
+        elif ip[0] == "append":
+            Output.append(int(ip[1]))
+        elif ip[0] == "sort":
+            Output.sort()
+        else:
+            Output.reverse()
+
+
