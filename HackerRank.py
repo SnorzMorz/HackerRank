@@ -205,4 +205,52 @@ def python_lists():
         else:
             Output.reverse()
 
+def sockMerchant(n, ar):
+    singles = []
+    res = 0
+    for sock in ar:
+        if sock not in singles:
+            singles.append(sock)
+        else:
+            res += 1
+            singles.remove(sock)
+    return res
+
+
+def countingValleys(steps, path):
+    height = 0
+    in_valley = False
+    res = 0
+    for step in path:
+        if(step == "D"):
+            if(height == 0):
+                in_valley == True
+            height -= 1
+        elif(step == "U"):
+            if(height == -1):
+                in_valley = False
+                res +=1
+            height += 1
+    return res
+
+def jumpingOnClouds(c):
+    current = 0
+    moves = 0
+    while current <= len(c)-2:
+        if current < len(c) - 2 and c[current + 2] == 0:
+            current += 2
+        else:
+            current += 1
+        moves +=1
+    return moves
+
+
+def repeatedString(s, n):
+    count_a = s.count('a')
+    count_total = len(s)
+    res_complete = (n // count_total) * count_a
+    leftover = n % count_total
+    res_leftover = s[0:leftover].count('a')
+
+    return res_complete + res_leftover
 
