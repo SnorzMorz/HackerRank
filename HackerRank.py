@@ -271,3 +271,37 @@ def minimumBribes(q):
 
     print(bribes)
 
+
+def wrap(string, max_width):
+    import textwrap
+    wrapper = textwrap.TextWrapper(width=max_width)
+
+    return "\n".join(wrapper.wrap(string))
+
+def door_mat():
+    import string
+
+    n, m = input().split()
+
+    L = []
+    for i in range(int(n) // 2):
+        s = '.|.' * i + '.|.' + '.|.' * i
+        L.append(s.center(int(m), "-"))
+
+    L.append("WELCOME".center(int(m), "-"))
+    for i in range(int(n) // 2 - 1, -1, -1):
+        s = '.|.' * i + '.|.' + '.|.' * i
+        L.append(s.center(int(m), "-"))
+
+    print('\n'.join(L))
+
+def calendar():
+    import calendar
+
+    month, day, year = input().split()
+
+    d = calendar.weekday(int(year), int(month), int(day))
+
+    print(calendar.day_name[d].upper())
+
+
