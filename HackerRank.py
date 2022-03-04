@@ -304,4 +304,14 @@ def calendar():
 
     print(calendar.day_name[d].upper())
 
+def symm_diff():
+    n1 = int(input())
+    list1 = set(input().split())
+    n2 = int(input())
+    list2 = set(input().split())
 
+    un = list1.union(list2)
+    inter = list1.intersection(list2)
+    res = map(int, un.difference(inter))
+
+    print(*sorted(list(res)), sep="\n")
