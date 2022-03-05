@@ -315,3 +315,29 @@ def symm_diff():
     res = map(int, un.difference(inter))
 
     print(*sorted(list(res)), sep="\n")
+
+
+def iter_perm():
+    from itertools import permutations
+
+    inp = input().split()
+
+    word = inp[0]
+
+    if (len(inp) == 1):
+        l = len(word)
+    else:
+        l = inp[1]
+
+    perms = [''.join(p) for p in permutations(word, int(l))]
+
+    print(*sorted(perms), sep="\n")
+
+def div_mod():
+    a = int(input())
+    b = int(input())
+
+    print(a // b)
+    print(a % b)
+    print(divmod(a, b))
+
