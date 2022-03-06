@@ -341,3 +341,29 @@ def div_mod():
     print(a % b)
     print(divmod(a, b))
 
+def named_tuple():
+    from collections import namedtuple
+
+    n = input()
+
+    order = input()
+    students = []
+    Student = namedtuple('Student', order)
+    for _ in range(int(n)):
+        student = input().split()
+        students.append(Student(student[0], student[1], student[2], student[3]))
+
+    total = 0
+    for student in students:
+        total += int(student.MARKS)
+
+    print(total / int(n))
+
+def set_add():
+    n = int(input())
+    s = set()
+    for _ in range(n):
+        stamp = input()
+        s.add(stamp)
+
+    print(len(s))
