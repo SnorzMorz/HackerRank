@@ -367,3 +367,39 @@ def set_add():
         s.add(stamp)
 
     print(len(s))
+
+def sets_remove():
+    n = int(input())
+    s = set(map(int, input().split()))
+
+    m = int(input())
+
+    for _ in range(m):
+        inp = input().split()
+        if (inp[0] == "pop"):
+            s.pop()
+        elif (inp[0] == "remove"):
+            s.remove(int(inp[1]))
+        elif (inp[0] == "discard"):
+            s.discard(int(inp[1]))
+
+    print(sum(s))
+
+def angle_mbc():
+    import math
+
+    AB = int(input())
+
+    BC = int(input())
+
+    H = math.sqrt(AB ** 2 + BC ** 2)
+    H = H / 2.0
+    adj = BC / 2.0
+    out = int(round(math.degrees(math.acos(adj / H))))
+
+    out = str(out)
+
+    degree_sign = u"\N{DEGREE SIGN}"
+
+    print(out + degree_sign)
+
