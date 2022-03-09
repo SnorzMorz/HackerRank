@@ -154,9 +154,9 @@ def incorrect_regex():
 
 
 def capitlize(s):
-    if(s == "1 w 2 r 3g"):
-        return("1 W 2 R 3g")
-    return(s.title())
+    if (s == "1 w 2 r 3g"):
+        return ("1 W 2 R 3g")
+    return (s.title())
 
 
 def merge_the_tools(string, k):
@@ -185,6 +185,7 @@ def print_rangoli(size):
 
     print('\n'.join(L[:0:-1] + L))
 
+
 def python_lists():
     N = int(input())
     Output = []
@@ -205,6 +206,7 @@ def python_lists():
         else:
             Output.reverse()
 
+
 def sockMerchant(n, ar):
     singles = []
     res = 0
@@ -222,26 +224,27 @@ def countingValleys(steps, path):
     in_valley = False
     res = 0
     for step in path:
-        if(step == "D"):
-            if(height == 0):
+        if (step == "D"):
+            if (height == 0):
                 in_valley == True
             height -= 1
-        elif(step == "U"):
-            if(height == -1):
+        elif (step == "U"):
+            if (height == -1):
                 in_valley = False
-                res +=1
+                res += 1
             height += 1
     return res
+
 
 def jumpingOnClouds(c):
     current = 0
     moves = 0
-    while current <= len(c)-2:
+    while current <= len(c) - 2:
         if current < len(c) - 2 and c[current + 2] == 0:
             current += 2
         else:
             current += 1
-        moves +=1
+        moves += 1
     return moves
 
 
@@ -278,6 +281,7 @@ def wrap(string, max_width):
 
     return "\n".join(wrapper.wrap(string))
 
+
 def door_mat():
     import string
 
@@ -295,6 +299,7 @@ def door_mat():
 
     print('\n'.join(L))
 
+
 def calendar():
     import calendar
 
@@ -303,6 +308,7 @@ def calendar():
     d = calendar.weekday(int(year), int(month), int(day))
 
     print(calendar.day_name[d].upper())
+
 
 def symm_diff():
     n1 = int(input())
@@ -333,6 +339,7 @@ def iter_perm():
 
     print(*sorted(perms), sep="\n")
 
+
 def div_mod():
     a = int(input())
     b = int(input())
@@ -340,6 +347,7 @@ def div_mod():
     print(a // b)
     print(a % b)
     print(divmod(a, b))
+
 
 def named_tuple():
     from collections import namedtuple
@@ -359,6 +367,7 @@ def named_tuple():
 
     print(total / int(n))
 
+
 def set_add():
     n = int(input())
     s = set()
@@ -367,6 +376,7 @@ def set_add():
         s.add(stamp)
 
     print(len(s))
+
 
 def sets_remove():
     n = int(input())
@@ -385,6 +395,7 @@ def sets_remove():
 
     print(sum(s))
 
+
 def angle_mbc():
     import math
 
@@ -402,4 +413,36 @@ def angle_mbc():
     degree_sign = u"\N{DEGREE SIGN}"
 
     print(out + degree_sign)
+
+
+def deque():
+    from collections import deque
+
+    d = deque()
+
+    n = int(input())
+
+    for _ in range(n):
+        text = input().split()
+        if (text[0] == "append"):
+            d.append(text[1])
+        if (text[0] == "pop"):
+            d.pop()
+        if (text[0] == "popleft"):
+            d.popleft()
+        if (text[0] == "appendleft"):
+            d.appendleft(text[1])
+
+    print(*d)
+
+def power():
+    a = int(input())
+    b = int(input())
+    m = int(input())
+
+    print(pow(a, b))
+
+    print(pow(a, b, m))
+
+
 
