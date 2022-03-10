@@ -444,5 +444,16 @@ def power():
 
     print(pow(a, b, m))
 
+def intersection():
+    n = input()
+
+    english = set(input().split())
+
+    m = input()
+
+    french = set(input().split())
+
+    print(len(english.intersection(french)))
+
 
 
