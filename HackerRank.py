@@ -455,5 +455,39 @@ def intersection():
 
     print(len(english.intersection(french)))
 
+def integers_come_in_all_sizes():
+    nums = []
+    for i in range(4):
+        nums.append(int(input()))
+
+    print(nums[0] ** nums[1] + nums[2] ** nums[3])
+
+
+def symmetric_diff():
+    n = input()
+
+    english = set(input().split())
+
+    m = input()
+
+    french = set(input().split())
+
+    print(len(english.symmetric_difference(french)))
+
+
+def deleteNode(llist, position):
+    if (position == 0):
+        return llist.next
+    i = 0
+    current = llist
+    while i < position - 1:
+        i = i + 1
+        current = current.next
+
+    current.next = current.next.next
+
+    return llist
+
+
 
 
