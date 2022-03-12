@@ -488,6 +488,54 @@ def deleteNode(llist, position):
 
     return llist
 
+def getNode(head, position):
+    if not head:
+        return None
+    if not head.next:
+        return head.data
+    lst_len = 0
+    ptr = head
+    while ptr.next:
+        lst_len += 1
+        ptr = ptr.next
+    while lst_len > position:
+        head = head.next
+        lst_len -= 1
+    return head.data
+
+
+def reversePrint(llist):
+    res = []
+    if not llist.next:
+        print(llist.data)
+    while llist:
+        res.append(llist.data)
+        llist = llist.next
+
+    for i in range(len(res), 0, -1):
+        print(res[i - 1])
+
+
+def compare_lists(llist1, llist2):
+    while (llist1 and llist2):
+        if (llist1.data != llist2.data):
+            return 0
+        llist1 = llist1.next
+        llist2 = llist2.next
+
+    if not llist1:
+        if not llist2:
+            return 1
+    return 0
+
+def insertNodeAtHead(llist, data):
+    # Write your code here
+    node = SinglyLinkedListNode(data)
+    if llist:
+        node.next = llist
+    return node
+
+
 
 
 
