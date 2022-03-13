@@ -435,6 +435,7 @@ def deque():
 
     print(*d)
 
+
 def power():
     a = int(input())
     b = int(input())
@@ -443,6 +444,7 @@ def power():
     print(pow(a, b))
 
     print(pow(a, b, m))
+
 
 def intersection():
     n = input()
@@ -454,6 +456,7 @@ def intersection():
     french = set(input().split())
 
     print(len(english.intersection(french)))
+
 
 def integers_come_in_all_sizes():
     nums = []
@@ -487,6 +490,7 @@ def deleteNode(llist, position):
     current.next = current.next.next
 
     return llist
+
 
 def getNode(head, position):
     if not head:
@@ -528,14 +532,24 @@ def compare_lists(llist1, llist2):
             return 1
     return 0
 
+
+"""
 def insertNodeAtHead(llist, data):
     # Write your code here
     node = SinglyLinkedListNode(data)
     if llist:
         node.next = llist
     return node
+"""
 
 
+def union():
+    n = input()
 
+    english = set(input().split())
 
+    m = input()
 
+    french = set(input().split())
+
+    print(len(english.union(french)))
