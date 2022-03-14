@@ -553,3 +553,54 @@ def union():
     french = set(input().split())
 
     print(len(english.union(french)))
+
+def comb_itertools():
+    from itertools import combinations_with_replacement
+
+    io = input().split();
+    char = sorted(io[0]);
+    N = int(io[1]);
+
+    for i in combinations_with_replacement(char, N):
+        print(''.join(i));
+
+
+def insertNodeAtPosition(llist, data, position):
+    head = llist
+
+    while position != 1:
+        llist = llist.next
+        position -= 1
+
+    new_node = SinglyLinkedListNode(data)
+    new_node.next = llist.next
+    llist.next = new_node
+
+    return head
+
+def preOrder(root):
+    #Write your code here
+    p = root
+    if p is None:
+        return
+    print(p.info, end=' ')
+    preOrder(p.left)
+    preOrder(p.right)
+
+def inOrder(root):
+    p = root
+    if p is None:
+        return
+    inOrder(p.left)
+    print(p.info, end=' ')
+    inOrder(p.right)
+
+def postOrder(root):
+    p = root
+    if p is None:
+        return
+    postOrder(p.left)
+    postOrder(p.right)
+    print(p.info, end=' ')
+
+
