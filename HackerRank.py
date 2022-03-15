@@ -554,6 +554,7 @@ def union():
 
     print(len(english.union(french)))
 
+
 def comb_itertools():
     from itertools import combinations_with_replacement
 
@@ -578,14 +579,16 @@ def insertNodeAtPosition(llist, data, position):
 
     return head
 
+
 def preOrder(root):
-    #Write your code here
+    # Write your code here
     p = root
     if p is None:
         return
     print(p.info, end=' ')
     preOrder(p.left)
     preOrder(p.right)
+
 
 def inOrder(root):
     p = root
@@ -594,6 +597,7 @@ def inOrder(root):
     inOrder(p.left)
     print(p.info, end=' ')
     inOrder(p.right)
+
 
 def postOrder(root):
     p = root
@@ -604,3 +608,67 @@ def postOrder(root):
     print(p.info, end=' ')
 
 
+def check_subset():
+    n = int(input())
+    for i in range(n):
+        num_a = input()
+        set_a = set(input().split())
+        num_b = input()
+        set_b = set(input().split())
+        set_c = set_a.intersection(set_b)
+
+        if (set_c == set_a):
+            print(True)
+        else:
+            print(False)
+
+
+def removeDuplicates(llist):
+    head = llist
+    while llist != None and llist.next != None:
+        while llist.data == llist.next.data:
+            if (llist.next.next != None):
+                llist.next = llist.next.next
+            else:
+                llist.next = None
+                break
+        llist = llist.next
+    return head
+
+
+def insert(self, val):
+    if self.root is None:
+        self.root = Node(val)
+    else:
+        current = self.root
+        while True:
+            if val < current.info:
+                if current.left is None:
+                    current.left = Node(val)
+                    break
+                else:
+                    current = current.left
+            else:
+                if current.right is None:
+                    current.right = Node(val)
+                    break
+                else:
+                    current = current.right
+
+
+def reverse(head):
+    if head == None or head.next == None:
+        return head
+
+    while True:
+        temp = head.next
+        head.next = head.prev
+        head.prev = temp
+        head = head.prev
+
+        if head.next == None:
+            break
+    temp = head.next
+    head.next = head.prev
+    head.prev = temp
+    return head
