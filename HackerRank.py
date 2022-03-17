@@ -672,3 +672,56 @@ def reverse(head):
     head.next = head.prev
     head.prev = temp
     return head
+
+def captains_room():
+    k = int(input())
+
+    room_nums = input().split()
+
+    room_nums = sorted(room_nums)
+
+    current = 0
+    while True:
+        if (current < len(room_nums) - 1 and room_nums[current] == room_nums[current + 1]):
+            current = current + k
+        else:
+            print(room_nums[current])
+            break
+
+def zipped():
+    n, x = input().split()
+
+    marks_all = []
+    for i in range(int(x)):
+        marks = input().split()
+        marks_all.append(marks)
+
+    marks_zip = zip(*marks_all)
+
+    for zipped in marks_zip:
+        total = 0
+        for num in zipped:
+            total += float(num)
+        print(total / int(x))
+
+def twoStrings(s1, s2):
+    if(len(s1) > len(s2)):
+        for letter in list(s2):
+            if(letter in s1):
+                return "YES"
+        return "NO"
+    else:
+        for letter in list(s1):
+            if(letter in s2):
+                return "YES"
+        return "NO"
+
+def iter_comb():
+    from itertools import combinations
+
+    io = input().split()
+    S = io[0]
+    k = int(io[1])
+    for i in range(1, k + 1):
+        for j in combinations(sorted(S), i):
+            print("".join(j))
