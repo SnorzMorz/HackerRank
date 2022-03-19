@@ -725,3 +725,14 @@ def iter_comb():
     for i in range(1, k + 1):
         for j in combinations(sorted(S), i):
             print("".join(j))
+
+def compress_string():
+    from itertools import *
+
+    io = input()
+    for i, j in groupby(map(int, list(io))):
+        print(tuple([len(list(j)), i]), end=" ")
+
+def triangle_quest():
+    for i in range(1, int(input()) + 1):  # More than 2 lines will result in 0 score. Do not leave a blank line also
+        print(int(((10 ** i - 1) / (9)) ** 2))
