@@ -673,6 +673,7 @@ def reverse(head):
     head.prev = temp
     return head
 
+
 def captains_room():
     k = int(input())
 
@@ -687,6 +688,7 @@ def captains_room():
         else:
             print(room_nums[current])
             break
+
 
 def zipped():
     n, x = input().split()
@@ -704,17 +706,19 @@ def zipped():
             total += float(num)
         print(total / int(x))
 
+
 def twoStrings(s1, s2):
-    if(len(s1) > len(s2)):
+    if (len(s1) > len(s2)):
         for letter in list(s2):
-            if(letter in s1):
+            if (letter in s1):
                 return "YES"
         return "NO"
     else:
         for letter in list(s1):
-            if(letter in s2):
+            if (letter in s2):
                 return "YES"
         return "NO"
+
 
 def iter_comb():
     from itertools import combinations
@@ -726,12 +730,14 @@ def iter_comb():
         for j in combinations(sorted(S), i):
             print("".join(j))
 
+
 def compress_string():
     from itertools import *
 
     io = input()
     for i, j in groupby(map(int, list(io))):
         print(tuple([len(list(j)), i]), end=" ")
+
 
 def triangle_quest():
     for i in range(1, int(input()) + 1):  # More than 2 lines will result in 0 score. Do not leave a blank line also
@@ -749,3 +755,41 @@ def set_intersection():
 
     print(len(english.difference(french)))
 
+
+def no_idea():
+    n, m = input().split()
+
+    happiness = 0
+
+    array = input().split()
+
+    set_A = set(input().split())
+
+    set_B = set(input().split())
+
+    for num in array:
+        if (num in set_A):
+            happiness += 1
+        elif (num in set_B):
+            happiness -= 1
+
+    print(happiness)
+
+
+def word_order():
+    from collections import OrderedDict
+
+    n = int(input())
+
+    words = OrderedDict()
+
+    for _ in range(n):
+        word = input()
+        if (word in words):
+            words.update({word: words.get(word) + 1})
+        else:
+            words.update({word: 1})
+
+    print(len(words))
+
+    print(*[value for key, value in words.items()], sep=" ")
