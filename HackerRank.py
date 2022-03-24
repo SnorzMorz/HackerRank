@@ -793,3 +793,72 @@ def word_order():
     print(len(words))
 
     print(*[value for key, value in words.items()], sep=" ")
+
+
+def iterables_iterators():
+    from itertools import combinations
+
+    n = input()
+
+    letters = input().split()
+
+    m = input()
+
+    combs = list(combinations(letters, int(m)))
+
+    total = len(combs)
+
+    contain_amount = 0
+
+    for item in combs:
+        if ('a' in item):
+            contain_amount += 1
+
+    print(contain_amount / total)
+
+
+def rotLeft(a, d):
+    d = d % len(a)
+    # for i in range(d):
+    # a = a[1:] + [a[0]]
+
+    a = a[d:] + a[0:d]
+
+    return a
+
+def piling_up():
+    t = int(input())
+
+    for i in range(t):
+        n = input()
+        cubes = list(map(int, input().split()))
+
+        left = 0
+        right = len(cubes) - 1
+
+        if (cubes[left] > cubes[right]):
+            last = cubes[left]
+            left += 1
+
+        else:
+            last = cubes[right]
+            left -= 1
+
+        while left != right:
+            if (cubes[left] > cubes[right]):
+                if (cubes[left] > last):
+                    print("No")
+                    break
+                else:
+                    last = cubes[left]
+                    left += 1
+            else:
+                if (cubes[right] > last):
+                    print("No")
+                    break
+                else:
+                    last = cubes[right]
+                    right -= 1
+
+        if (left == right):
+            print("Yes")
