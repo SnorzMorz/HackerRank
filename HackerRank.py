@@ -862,3 +862,57 @@ def piling_up():
 
         if (left == right):
             print("Yes")
+
+def re_split():
+    regex_pattern = r"[,.]"  # Do not delete 'r'.
+
+    import re
+    print("\n".join(re.split(regex_pattern, input())))
+
+
+def plusMinus(arr):
+    total = len(arr)
+    pos = 0
+    neg = 0
+    zero = 0
+    for num in arr:
+        if (num > 0):
+            pos += 1
+        elif (num < 0):
+            neg += 1
+        else:
+            zero += 1
+
+    print(round(pos / total, 6))
+    print(round(neg / total, 6))
+    print(round(zero / total, 6))
+
+
+def miniMaxSum(arr):
+    max_value = max(arr)
+    min_value = min(arr)
+
+    total_value = sum(arr)
+
+    max_4 = total_value - min_value
+    min_4 = total_value - max_value
+
+    print(min_4, end=" ")
+    print(max_4)
+
+
+def timeConversion(s):
+    hours = s[0:2]
+    minutes = s[3:5]
+    seconds = s[6:8]
+
+    if (s[8:] == "AM"):
+        if (int(hours) >= 12):
+            hours = "00"
+        return hours + ":" + minutes + ":" + seconds
+    else:
+        if (int(hours) < 12):
+            hours = int(hours) + 12
+        else:
+            hours = int(hours)
+        return str(hours) + ":" + minutes + ":" + seconds
