@@ -916,3 +916,24 @@ def timeConversion(s):
         else:
             hours = int(hours)
         return str(hours) + ":" + minutes + ":" + seconds
+
+
+def lonelyinteger(a):
+    seen = set()
+
+    for num in a:
+        if (num in seen):
+            seen.remove(num)
+        else:
+            seen.add(num)
+
+    return seen.pop()
+
+
+def countingSort(arr):
+    result = [0 for _ in range(100)]
+
+    for num in arr:
+        result[num] += 1
+
+    return result
