@@ -937,3 +937,44 @@ def countingSort(arr):
         result[num] += 1
 
     return result
+
+
+def findZigZagSequence(a, n):
+    a.sort()
+    mid = int((n)/2) # Line 2
+    a[mid], a[n-1] = a[n-1], a[mid]
+
+    st = mid + 1
+    ed = n - 2 # Line 3
+    while(st <= ed):
+        a[st], a[ed] = a[ed], a[st]
+        st = st + 1
+        ed = ed - 1 # Line 1
+
+    for i in range (n):
+        if i == n-1:
+            print(a[i])
+        else:
+            print(a[i], end = ' ')
+    return
+
+
+def caesarCipher(s, k):
+    k = k % 26
+    s = list(s)
+    result = []
+    for letter in s:
+        if (letter.isalpha()):
+            if (letter.isupper()):
+                number = ord(letter) + k
+                if (number > 90):
+                    number = 64 + (number % 90)
+            else:
+                number = ord(letter) + k
+                if (number > 122):
+                    number = 96 + (number % 122)
+            result.append(chr(number))
+        else:
+            result.append(letter)
+
+    return "".join(result)
