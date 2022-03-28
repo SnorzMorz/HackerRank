@@ -978,3 +978,26 @@ def caesarCipher(s, k):
             result.append(letter)
 
     return "".join(result)
+
+
+def towerBreakers(n, m):
+    if m == 1:
+        return 2
+    else:
+        if n % 2 == 0:
+            return 2
+        else:
+            return 1
+
+
+def gridChallenge(grid):
+    sorted_grid = []
+    for arr in grid:
+        sorted_grid.append(sorted(arr))
+
+    for i in range(len(sorted_grid[0])):
+        for j in range(len(sorted_grid) - 1):
+            if (ord(sorted_grid[j][i]) > ord(sorted_grid[j + 1][i])):
+                return "NO"
+
+    return "YES"
