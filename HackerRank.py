@@ -1001,3 +1001,22 @@ def gridChallenge(grid):
                 return "NO"
 
     return "YES"
+
+
+def any_or_all():
+    N, n = int(input()), input().split()
+    print(all([int(i) > 0 for i in n]) and any([j == j[::-1] for j in n]))
+
+
+def findMergeNode(head1, head2):
+    seen = []
+    while head1 != None:
+        seen.append(head1)
+        head1 = head1.next
+
+    while head2 != None:
+        if (head2 in seen):
+            return head2.data
+        head2 = head2.next
+
+    return head1
