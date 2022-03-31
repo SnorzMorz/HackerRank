@@ -1020,3 +1020,10 @@ def findMergeNode(head1, head2):
         head2 = head2.next
 
     return head1
+
+def fibonacci(n):
+    storage = [0, 1]
+    for i in range(2, n):
+        storage.append(storage[i-1] + storage[i-2])
+    return(storage[0:n])
+
