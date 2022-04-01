@@ -1027,3 +1027,69 @@ def fibonacci(n):
         storage.append(storage[i-1] + storage[i-2])
     return(storage[0:n])
 
+
+def matchingStrings(strings, queries):
+    strings_dict = dict()
+
+    for string in strings:
+        if (string in strings_dict):
+            strings_dict.update({string: strings_dict.get(string) + 1})
+        else:
+            strings_dict.update({string: 1})
+
+    result = []
+    for q in queries:
+        if (q in strings_dict):
+            result.append(strings_dict.get(q))
+        else:
+            result.append(0)
+
+    return result
+
+
+def has_cycle(head):
+    slow = head
+    fast = head.next
+
+    while fast and fast.next:
+        if (slow == fast):
+            return 1
+        slow = slow.next
+        fast = fast.next.next
+
+    return 0
+
+
+def height(root):
+    if (not root.left and not root.right):
+        return 0
+
+    if (root.left and root.right):
+        return 1 + max(height(root.left), height(root.right))
+    elif (root.left):
+        return 1 + height(root.left)
+    else:
+        return 1 + height(root.right)
+
+
+def isBalanced(s):
+    stack = []
+
+    for char in list(s):
+        if (char in ["{", "[", "("]):
+            stack.append(char)
+        else:
+            if (len(stack) == 0):
+                return "NO"
+            popped = stack.pop()
+            if (popped == "{" and char != "}"):
+                return "NO"
+            if (popped == "(" and char != ")"):
+                return "NO"
+            if (popped == "[" and char != "]"):
+                return "NO"
+
+    if (len(stack) == 0):
+        return "YES"
+    else:
+        return "NO"
