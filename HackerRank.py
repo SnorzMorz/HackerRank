@@ -1127,3 +1127,34 @@ def mergeLists(head1, head2):
         head2 = head2.next
 
     return head
+
+def fun(s):
+    return bool(re.search(r"^[\w\-\_]+@[a-zA-Z\d]+\.\w{1,3}$", s))
+
+def reverse(head):
+    nxt = None
+    while head:
+        tmp = head.next
+        head.next = nxt
+        nxt = head
+        head = tmp
+    return nxt
+
+
+def equalStacks(h1, h2, h3):
+    h1_total = sum(h1)
+    h2_total = sum(h2)
+    h3_total = sum(h3)
+    while h1_total != h3_total or h2_total != h3_total:
+        if (h1_total > h2_total):
+            if (h1_total > h3_total):
+                h1_total -= h1.pop(0)
+            else:
+                h3_total -= h3.pop(0)
+        else:
+            if (h2_total > h3_total):
+                h2_total -= h2.pop(0)
+            else:
+                h3_total -= h3.pop(0)
+
+    return h1_total
