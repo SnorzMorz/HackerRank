@@ -1158,3 +1158,56 @@ def equalStacks(h1, h2, h3):
                 h3_total -= h3.pop(0)
 
     return h1_total
+
+def nested_list():
+    score_list = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+
+        score_list.append([name, score])
+    second_highest = sorted(set([score for name, score in score_list]))[1]
+    print('\n'.join(sorted([name for name, score in score_list if score == second_highest])))
+
+
+def check_strict_subset():
+    set_a = set(input().split())
+
+    n = int(input())
+
+    for i in range(n):
+        is_subset = True
+        set_b = set(input().split())
+        for value in set_b:
+            if (value not in set_a):
+                print("False")
+                is_subset = False
+                break
+
+        if (not is_subset):
+            break
+
+    if (is_subset):
+        print("True")
+
+def q_using_two_stacks():
+    stack_1 = []
+    stack_2 = []
+
+    q_num = int(input())
+
+    for i in range(q_num):
+        q = input().split()
+        if (q[0] == "1"):  # Enqueue
+            stack_1.append(q[1])
+        elif (q[0] == "2"):
+            if (len(stack_2) == 0):
+                while len(stack_1) > 0:
+                    stack_2.append(stack_1.pop())
+            stack_2.pop()
+
+        else:
+            if (len(stack_2) > 0):
+                print(stack_2[-1])
+            else:
+                print(stack_1[0])
