@@ -1211,3 +1211,25 @@ def q_using_two_stacks():
                 print(stack_2[-1])
             else:
                 print(stack_1[0])
+
+def set_mutations():
+    # Enter your code here. Read input from STDIN. Print output to STDOUT
+
+    n = int(input())
+
+    res = set(input().split())
+
+    m = input()
+
+    for i in range(int(m)):
+        inp = input().split()
+        if (inp[0] == "intersection_update"):
+            res.intersection_update(set(input().split()))
+        elif (inp[0] == "update"):
+            res.update(set(input().split()))
+        elif (inp[0] == "symmetric_difference_update"):
+            res.symmetric_difference_update(set(input().split()))
+        elif (inp[0] == "difference_update"):
+            res.difference_update(set(input().split()))
+
+    print(sum(map(int, res)))
