@@ -1233,3 +1233,27 @@ def set_mutations():
             res.difference_update(set(input().split()))
 
     print(sum(map(int, res)))
+
+def q_using_two_stacks():
+    stack_1 = []
+    stack_2 = []
+
+    q = int(input())
+
+    for i in range(q):
+        query = input().split()
+        if (query[0] == "1"):
+            stack_1.append(query[1])
+        elif (query[0] == "2"):
+            if (len(stack_2) == 0):
+                while len(stack_1) > 0:
+                    stack_2.append(stack_1.pop())
+                stack_2.pop()
+            else:
+                stack_2.pop()
+        else:
+            if (len(stack_2) > 0):
+                print(stack_2[-1])
+            else:
+                print(stack_1[0])
+
