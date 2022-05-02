@@ -1257,3 +1257,7 @@ def q_using_two_stacks():
             else:
                 print(stack_1[0])
 
+def detect_float():
+    import re
+    for _ in range(int(input())):
+        print(bool(re.match(r'^[-+]?[0-9]*\.[0-9]+$', raw_input())))
